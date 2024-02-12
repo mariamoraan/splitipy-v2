@@ -1,0 +1,29 @@
+.wrapper {
+    width: min(400px, 50vw);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.wrapper input {
+    width: 100%;
+}
+
+.wrapper input[type='submit'] {
+    padding: 8px 12px;
+    border: 1px solid black;
+    border-radius: 4px;
+    outline: none;
+    background: transparent;
+    transition: 500ms;
+}
+
+.wrapper input[type='submit']:hover {
+    cursor: pointer;
+    background: var(--accent-color-150);
+}
+
+.error {
+    white-space: pre-wrap;
+    color: var(--error-color);
+}

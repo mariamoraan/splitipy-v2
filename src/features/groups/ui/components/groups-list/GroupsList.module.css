@@ -1,0 +1,38 @@
+.wrapper {
+    padding: 8px 12px;
+    height: 50%;
+    overflow-y: auto;
+}
+
+.header {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.header .icon {
+    position: relative;
+    top: 2px;
+}
+
+.title {
+    flex: 1;
+    font-size: var(--big-font);
+}
+
+.groups_list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    list-style: none;
+}
+
+.new_group_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}

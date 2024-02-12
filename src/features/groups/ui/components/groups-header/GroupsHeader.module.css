@@ -1,0 +1,15 @@
+.wrapper {
+    margin-bottom: 12px;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.welcome_text {
+    font-size: var(--big-font);
+}
+
+.welcome_text strong {
+    color: var(--accent-color-100);
+}

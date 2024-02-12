@@ -1,0 +1,32 @@
+.wrapper {
+    padding: 8px 12px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid black;
+    border-radius: 4px;
+    transition: 500ms ease;
+    color: black;
+    text-decoration: none;
+}
+
+.wrapper:hover {
+    cursor: pointer;
+    background: var(--accent-color-150);
+}
+
+.group_image {
+    width: 50px;
+    height: auto;
+    aspect-ratio: 1/1;
+    border-radius: 100px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.group_name {
+  font-weight: bold;
+  flex: 1;
+}
+

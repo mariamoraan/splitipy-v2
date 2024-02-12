@@ -1,0 +1,14 @@
+.basic_button {
+    padding: 8px 12px;
+    font-size: var(--normal-font);
+    border: 1px solid black;
+    border-radius: 4px;
+    outline: none;
+    background: transparent;
+    transition: 500ms;
+}
+
+.basic_button:hover {
+    cursor: pointer;
+    background: var(--accent-color-150);
+}

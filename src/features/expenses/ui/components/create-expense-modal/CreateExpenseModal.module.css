@@ -1,0 +1,37 @@
+.wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    padding: 24px;
+    width: min(800px, 80%);
+    height: min(800px, 80%);
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.hidden_form {
+    display: none;
+    background: red;
+}
+
+.modal_header {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.close_button {
+    color: var(--error-color);
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
+}

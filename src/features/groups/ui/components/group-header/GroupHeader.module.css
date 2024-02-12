@@ -1,0 +1,28 @@
+.wrapper {
+    margin: 24px 0;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.group_image {
+    width: 60px;
+    height: auto;
+    aspect-ratio: 1/1;
+    border-radius: 100px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.group_name {
+    flex: 1;
+}
+
+.go_back_button {
+    transition: 500ms ease;
+}
+
+.go_back_button:hover {
+    color: var(--accent-color-100);
+}
