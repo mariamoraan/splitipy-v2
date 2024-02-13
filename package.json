@@ -26,7 +26,9 @@
         "test": "jest",
         "test:watch": "jest --watch",
         "lint": "eslint src/**/*.ts src/**/*.tsx",
-        "prettier" : "npx prettier --write ."
+        "prettier": "npx prettier --write .",
+        "pre-commit": "npm run lint",
+        "pre-push": "npm run test"
     },
     "eslintConfig": {
         "extends": [
@@ -53,6 +55,7 @@
         "@types/jest": "^29.5.12",
         "@types/uuid": "^9.0.8",
         "babel-plugin-transform-typescript-metadata": "^0.3.2",
+        "husky": "^9.0.10",
         "jest-mock-extended": "^3.0.5",
         "prettier": "3.2.5",
         "ts-jest": "^29.1.2",
