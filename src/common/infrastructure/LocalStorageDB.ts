@@ -1,17 +1,17 @@
-import { LocalDB } from "../domain/LocalDB"
+import { LocalDB } from '../domain/LocalDB'
 
 export class LocalStorageDB implements LocalDB {
-    removeItem = async(key: string) => {
+    removeItem = async (key: string) => {
         await localStorage.removeItem(key)
     }
-    setItem = async(key: string, elem: string) => {
+    setItem = async (key: string, elem: string) => {
         await localStorage.setItem(key, elem)
     }
-    getItem = async(key: string):Promise<string | null> => {
-       const item =  await localStorage.getItem(key)
-       return item
+    getItem = async (key: string): Promise<string | null> => {
+        const item = await localStorage.getItem(key)
+        return item
     }
-    clear = async() => {
+    clear = async () => {
         localStorage.clear()
     }
 }

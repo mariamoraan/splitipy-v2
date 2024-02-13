@@ -11,31 +11,26 @@ export const GroupsPage = () => {
     const [groups, setGroups] = useState<Group[]>([])
 
     useEffect(() => {
-        const queryGroups = async() => {
+        const queryGroups = async () => {
             setGroups(await GroupsLocator.getGetGroups().execute())
         }
         queryGroups()
     }, [])
-    
+
     return (
         <div className={styles.wrapper}>
             <GroupsHeader />
             <div className={styles.content}>
-                <GroupsList 
-                setDisplayForm={setDisplayForm} 
-                groups={groups}
-                />
-                {
-                    displayForm 
-                    ? <GroupForm 
-                        setDisplayForm={setDisplayForm} 
-                        displayForm={displayForm} 
+                <GroupsList setDisplayForm={setDisplayForm} groups={groups} />
+                {displayForm ? (
+                    <GroupForm
+                        setDisplayForm={setDisplayForm}
+                        displayForm={displayForm}
                         setGroups={setGroups}
                         groups={groups}
                         closeForm={() => setDisplayForm(false)}
-                        /> 
-                    : null
-                }
+                    />
+                ) : null}
             </div>
         </div>
     )

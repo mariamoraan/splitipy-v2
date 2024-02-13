@@ -1,6 +1,6 @@
-import { Command } from "../../../../common/infrastructure/Command"
-import { Group } from "../../domain/entities/Group"
-import { GroupsRepository } from "../../domain/repositories/GroupsRepository"
+import { Command } from '../../../../common/infrastructure/Command'
+import { Group } from '../../domain/entities/Group'
+import { GroupsRepository } from '../../domain/repositories/GroupsRepository'
 
 export class ModifyGroupCommand implements Command<Group, Group> {
     private groupsRepository: GroupsRepository

@@ -1,6 +1,6 @@
-import { Group } from "../../domain/entities/Group"
-import { GroupsRepository } from "../../domain/repositories/GroupsRepository"
-import { Command } from "../../../../common/infrastructure/Command"
+import { Group } from '../../domain/entities/Group'
+import { GroupsRepository } from '../../domain/repositories/GroupsRepository'
+import { Command } from '../../../../common/infrastructure/Command'
 
 // TODO: configure prettier, eslint and git hooks
 export class CreateGroupCommand implements Command<Omit<Group, 'id'>, Group> {
@@ -15,6 +15,3 @@ export class CreateGroupCommand implements Command<Omit<Group, 'id'>, Group> {
         return newGroup
     }
 }
-
-
-

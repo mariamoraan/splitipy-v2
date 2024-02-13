@@ -1,4 +1,4 @@
-import { Group } from "../../domain/entities/Group";
+import { Group } from '../../domain/entities/Group'
 
 export const groupsMock: Group[] = [
     {
@@ -6,5 +6,5 @@ export const groupsMock: Group[] = [
         name: 'Group 1',
         members: [],
         expenses: [],
-    }
+    },
 ]

@@ -1,2 +1,1 @@
-
-export type ExpenseId = string;
+export type ExpenseId = string

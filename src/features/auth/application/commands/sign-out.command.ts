@@ -1,5 +1,5 @@
-import { Command } from "../../../../common/infrastructure/Command";
-import { AuthRepository } from "../../domain/repositories/AuthRepository";
+import { Command } from '../../../../common/infrastructure/Command'
+import { AuthRepository } from '../../domain/repositories/AuthRepository'
 
 export class SignOutCommand implements Command {
     private authRepository: AuthRepository

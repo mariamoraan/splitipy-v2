@@ -1,9 +1,9 @@
-import { localDB } from "../../../../common/infrastructure/instances";
-import { CreateGroupCommand } from "../../application/commands/create-group.command";
-import { GetGroupByIdQuery } from "../../application/queries/get-group-by-id.query";
-import { GetGroupsQuery } from "../../application/queries/get-groups.query";
-import { ModifyGroupCommand } from "../../application/commands/modify-group.command";
-import { GroupsLocalDBRepository } from "../repositories/GroupsLocalDBRepository";
+import { localDB } from '../../../../common/infrastructure/instances'
+import { CreateGroupCommand } from '../../application/commands/create-group.command'
+import { GetGroupByIdQuery } from '../../application/queries/get-group-by-id.query'
+import { GetGroupsQuery } from '../../application/queries/get-groups.query'
+import { ModifyGroupCommand } from '../../application/commands/modify-group.command'
+import { GroupsLocalDBRepository } from '../repositories/GroupsLocalDBRepository'
 
 export class GroupsLocator {
     static repository = new GroupsLocalDBRepository(localDB)

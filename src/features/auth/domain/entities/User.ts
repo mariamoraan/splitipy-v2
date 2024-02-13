@@ -1,6 +1,6 @@
-import { UserId } from "./UserId";
+import { UserId } from './UserId'
 
 export interface User {
-    id: UserId;
-    name: string;
+    id: UserId
+    name: string
 }

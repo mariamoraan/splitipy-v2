@@ -1,7 +1,6 @@
-import { Query } from "../../../../common/infrastructure/Query"
-import { Group } from "../../domain/entities/Group"
-import { GroupsRepository } from "../../domain/repositories/GroupsRepository"
-
+import { Query } from '../../../../common/infrastructure/Query'
+import { Group } from '../../domain/entities/Group'
+import { GroupsRepository } from '../../domain/repositories/GroupsRepository'
 
 export class GetGroupsQuery implements Query<Group[]> {
     private groupsRepository: GroupsRepository

@@ -1,48 +1,50 @@
 :root {
-  --green: rgb(26, 186, 26);
-  --green-with-opacity: rgba(0, 255, 0, 0.6);
-  --red: red;
+    --green: rgb(26, 186, 26);
+    --green-with-opacity: rgba(0, 255, 0, 0.6);
+    --red: red;
 
-  
-  --accent-color-100: var(--green);
-  --accent-color-150: var(--green-with-opacity);
-  --error-color: var(--red);
+    --accent-color-100: var(--green);
+    --accent-color-150: var(--green-with-opacity);
+    --error-color: var(--red);
 
-  --small-font: 16px;
-  --normal-font: 16px;
-  --big-font: calc(16px*2);
-  --big-font-2: calc(16px*2.5);
+    --small-font: 16px;
+    --normal-font: 16px;
+    --big-font: calc(16px * 2);
+    --big-font-2: calc(16px * 2.5);
 }
 
-
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: var(--normal-font);
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: var(--normal-font);
 }
 
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 p {
-  margin: 1ch 0;
+    margin: 1ch 0;
 }
 
-p, input, button, li, a {
-  font-size: var(--normal-font);
+p,
+input,
+button,
+li,
+a {
+    font-size: var(--normal-font);
 }
 
 h1 {
-  font-size: var(--big-font-2);
+    font-size: var(--big-font-2);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
 }

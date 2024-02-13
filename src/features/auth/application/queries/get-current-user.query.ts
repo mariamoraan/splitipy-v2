@@ -1,7 +1,6 @@
-
-import { Query } from "../../../../common/infrastructure/Query";
-import { User } from "../../domain/entities/User";
-import { AuthRepository } from "../../domain/repositories/AuthRepository";
+import { Query } from '../../../../common/infrastructure/Query'
+import { User } from '../../domain/entities/User'
+import { AuthRepository } from '../../domain/repositories/AuthRepository'
 
 export class GetCurrentUserQuery implements Query<User | null> {
     private authRepository: AuthRepository
