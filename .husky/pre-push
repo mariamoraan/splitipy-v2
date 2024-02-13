@@ -1,0 +1,4 @@
+npm run lint
+npm run prettier
+npm test
+echo "/Your code is pushed up"/

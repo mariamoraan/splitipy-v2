@@ -26,19 +26,15 @@
         "test": "jest",
         "test:watch": "jest --watch",
         "lint": "eslint src/**/*.ts src/**/*.tsx",
+        "lint:fix": "eslint src/**/*.ts src/**/*.tsx --fix",
         "prettier": "npx prettier --write .",
-        "prepare": "husky install"
+        "prepare": "husky"
     },
     "eslintConfig": {
         "extends": [
             "react-app",
             "react-app/jest"
         ]
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "echo\"Holaaaaaa\""
-        }
     },
     "browserslist": {
         "production": [
