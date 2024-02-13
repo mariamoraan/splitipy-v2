@@ -26,7 +26,8 @@
         "test": "jest",
         "test:watch": "jest --watch",
         "lint": "eslint src/**/*.ts src/**/*.tsx",
-        "prettier": "npx prettier --write ."
+        "prettier": "npx prettier --write .",
+        "prepare": "husky install"
     },
     "eslintConfig": {
         "extends": [
@@ -36,7 +37,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "echo \"[Husky] pre-commit\""
+            "pre-commit": "echo\"Holaaaaaa\""
         }
     },
     "browserslist": {
@@ -60,6 +61,7 @@
         "babel-plugin-transform-typescript-metadata": "^0.3.2",
         "husky": "^9.0.10",
         "jest-mock-extended": "^3.0.5",
+        "lint-staged": "^15.2.2",
         "prettier": "3.2.5",
         "ts-jest": "^29.1.2",
         "typescript-plugin-css-modules": "^5.0.2"
