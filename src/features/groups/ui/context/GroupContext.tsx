@@ -10,8 +10,8 @@ export const GroupContext = createContext<{
     openForm: () => void,
 }>({
     group: {...VOID_GROUP},
-    setGroup: (group: Group) => {},
+    setGroup: (group: Group) => group,
     isFormOpen: false,
-    closeForm: () => {},
-    openForm: () => {}
+    closeForm: () => null,
+    openForm: () => null
 })

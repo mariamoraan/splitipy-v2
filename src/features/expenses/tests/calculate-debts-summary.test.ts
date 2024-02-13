@@ -1,11 +1,11 @@
-import { CalculateDebtsSummary } from "../application/calculate-debts-summary"
+import { CalculateDebtsSummaryQuery } from "../application/queries/calculate-debts-summary.query"
 import { Expense } from "../domain/entities/Expense"
 import { Debtor } from "../domain/entities/Debtor"
 import { debtor1, debtor2, debtor3 } from "./mocks/debtors"
 import { payer1, payer2, payer3 } from "./mocks/payers"
 
 describe('CalculateDebtsSummary', () => {  
-    const calculateDebtsSummary = new CalculateDebtsSummary()
+    const calculateDebtsSummary = new CalculateDebtsSummaryQuery()
 
     test('If no expenses, the function must return a void dict', () => {
         expect(calculateDebtsSummary.execute([])).toEqual({})

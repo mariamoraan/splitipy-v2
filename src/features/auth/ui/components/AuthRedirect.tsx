@@ -9,7 +9,7 @@ interface Props {
 
 export const AuthRedirect = (props: Props) => {
     const {children} = props
-    const {currentUser, setCurrentUser} = useContext(AuthContext)
+    const {currentUser} = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
 

@@ -7,5 +7,5 @@ export const AuthContext = createContext<{
   setCurrentUser: (user: User | null) => void;
 }>({
   currentUser: null,
-  setCurrentUser: (user: User | null) => { }
+  setCurrentUser: (user: User | null) => user
 });

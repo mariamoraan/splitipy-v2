@@ -4,7 +4,7 @@ import { GroupContext } from '../../../../groups/ui/context/GroupContext'
 import { Button } from '../../../../../common/ui/components/button/Button'
 
 export const NoExpenses = () => {
-    const {group, openForm} = useContext(GroupContext)
+    const {openForm} = useContext(GroupContext)
     return (
         <div className={styles.wrapper}>
             <h2>Aún no hay gastos en este grupo</h2>

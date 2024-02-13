@@ -59,7 +59,7 @@ export const GroupPage = () => {
             <div className={styles.wrapper}>
                 <GroupHeader />
                 {expenses.length > 0 ? <Summary expenses={expenses} /> : null}
-                <ExpensesList groupExpenses={group.expenses} />
+                <ExpensesList groupExpenses={expenses} />
                 <CreateExpenseModal 
                     group={group} 
                     setGroup={setGroup}

@@ -1,4 +1,4 @@
-import { CalculateDebtsSummary } from "../../../application/calculate-debts-summary"
+import { CalculateDebtsSummaryQuery } from "../../../application/queries/calculate-debts-summary.query"
 import { Expense } from "../../../domain/entities/Expense"
 import styles from './Summary.module.css'
 
@@ -8,7 +8,7 @@ interface Props {
 
 export const Summary = (props: Props) => {
     const {expenses} = props
-    const calculateDebtsSummary = new CalculateDebtsSummary()
+    const calculateDebtsSummary = new CalculateDebtsSummaryQuery()
     const summary = calculateDebtsSummary.execute(expenses) 
 
     return (
@@ -16,8 +16,8 @@ export const Summary = (props: Props) => {
             <h2>Summary</h2>
             {Object.values(summary).map(debtor => (
                 debtor.amount > 0
-                ? <p>{debtor.name} debe {debtor.amount}€</p>
-                : <p>A {debtor.name} le deben {Math.abs(debtor.amount)}€</p>
+                ? <p key={debtor.id}>{debtor.name} debe {debtor.amount}€</p>
+                : <p key={debtor.id}>A {debtor.name} le deben {Math.abs(debtor.amount)}€</p>
             ))}
         </div>
     )

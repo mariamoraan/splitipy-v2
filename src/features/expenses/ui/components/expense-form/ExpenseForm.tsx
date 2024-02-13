@@ -5,7 +5,6 @@ import styles from './ExpenseForm.module.css'
 import { Expense } from "../../../domain/entities/Expense"
 import { Debtor } from "../../../domain/entities/Debtor"
 import { Payer } from "../../../domain/entities/Payer"
-import { CreateExpenseCommand } from "../../../application/commands/create-expense.command"
 import { ExpensesLocator } from "../../../infrastructure/di/container"
 
 interface Props {

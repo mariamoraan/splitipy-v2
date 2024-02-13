@@ -1,3 +1,3 @@
 import { UseCase } from "./UseCase";
 
-export interface Command<Request, Output = void> extends UseCase<Request, Output> { }
+export type Command<Request = void, Output = void> = UseCase<Request, Output>

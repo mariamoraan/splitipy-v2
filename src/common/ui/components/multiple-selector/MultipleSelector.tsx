@@ -1,4 +1,4 @@
-import { KeyboardEvent, useState, createContext, useContext, useEffect, useRef } from 'react'
+import { KeyboardEvent, useState, createContext, useContext, useEffect } from 'react'
 import styles from './MultipleSelector.module.css'
 import { ChevronDownIcon, LockIcon, XIcon } from '@primer/octicons-react'
 
@@ -28,16 +28,16 @@ const MultipleSelectorContext = createContext<{
 }>({
     options: [],
     items: [],
-    setItems: (options: Option[]) => {},
+    setItems: (options: Option[]) => options,
     search: {
         value: '',
         label: '',
         isFixed: false,
     },
-    setSearch: (search: Option) => {},
+    setSearch: (search: Option) => search,
     createValue: async(option: Option) => await option,
     areOptionsVisible: false,
-    setAreOptionsVisible: (areOptionsVisible: boolean) => {},
+    setAreOptionsVisible: (areOptionsVisible: boolean) => areOptionsVisible,
 })
 
 const ItemsMap = ({items, removeItem}: {items: Option[], removeItem: (item: Option) => void}) => {
