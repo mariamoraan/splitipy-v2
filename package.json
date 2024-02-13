@@ -26,14 +26,28 @@
         "test": "jest",
         "test:watch": "jest --watch",
         "lint": "eslint src/**/*.ts src/**/*.tsx",
-        "prettier": "npx prettier --write .",
-        "pre-commit": "npm run lint",
-        "pre-push": "npm run test"
+        "prettier": "npx prettier --write ."
     },
     "eslintConfig": {
         "extends": [
             "react-app",
             "react-app/jest"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged",
+            "pre-push": "npm run test"
+        }
+    },
+    "lint-staged": {
+        "*.ts": [
+            "eslint --fix",
+            "prettier --write"
+        ],
+        "*.tsx": [
+            "eslint --fix",
+            "prettier --write"
         ]
     },
     "browserslist": {

@@ -8,7 +8,7 @@ describe('CalculateDebtsSummary', () => {
     const calculateDebtsSummary = new CalculateDebtsSummaryQuery()
 
     test('If no expenses, the function must return a void dict', () => {
-        expect(calculateDebtsSummary.execute([])).toEqual('hola')
+        expect(calculateDebtsSummary.execute([])).toEqual({})
     })
     test('Debts summary must return a dict like user.id-Debtor', () => {
         const expenses: Expense[] = [
