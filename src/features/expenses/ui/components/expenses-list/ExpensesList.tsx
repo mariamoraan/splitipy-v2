@@ -8,34 +8,38 @@ import { Balance } from '../../../domain/entities/Balance'
 import { BalanceCard } from '../balance-card/BalanceCard'
 
 interface Props {
-    groupExpenses: Expense[]
+    expenses: Expense[]
 }
 
 const calculateBalance = new CalculateBalanceQuery()
 
 export const ExpensesList = (props: Props) => {
-    const { groupExpenses } = props
-    const [balance, setBalance] = useState<Balance[]>([])
+    const { expenses } = props
+    const [balance, setBalance] = useState<Balance>([])
 
     useEffect(() => {
         const setUpBalance = async () => {
-            const newBalance = await calculateBalance.execute(groupExpenses)
+            const newBalance = await calculateBalance.execute(expenses)
             setBalance(newBalance)
         }
         setUpBalance()
-    }, [groupExpenses.length])
+    }, [expenses.length])
 
-    if (groupExpenses.length === 0) return <NoExpenses />
+    if (expenses.length === 0) return <NoExpenses />
 
     return (
         <>
             <BalanceCard balance={balance} />
             <ul className={styles.expenses_list}>
-                {groupExpenses.map((expense) => (
-                    <li key={expense.id} className={styles.expense}>
-                        <ExpenseCard expense={expense} />
-                    </li>
-                ))}
+                {expenses
+                    .sort((expense1, expense2) =>
+                        expense1.date > expense2.date ? -1 : 1
+                    )
+                    .map((expense) => (
+                        <li key={expense.id} className={styles.expense}>
+                            <ExpenseCard expense={expense} />
+                        </li>
+                    ))}
             </ul>
         </>
     )

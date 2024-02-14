@@ -32,7 +32,7 @@ export const ExpenseForm = (props: Props) => {
                 isParticipant: true,
             }))
         )
-    }, [members])
+    }, [members.length])
 
     const orderParticipants = (
         participantA: Participant,
@@ -88,6 +88,7 @@ export const ExpenseForm = (props: Props) => {
             concept,
             payers: getPayers(participants),
             debtors: getDebtors(participants),
+            date: new Date(),
         }
         const createExpense = ExpensesLocator.getCreateExpense()
         const newExpense: Expense = await createExpense.execute(expense)

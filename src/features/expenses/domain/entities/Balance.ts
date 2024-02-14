@@ -1,7 +1,3 @@
-import { User } from '../../../auth/domain/entities/User'
+import { Transaction } from './Transaction'
 
-export type Balance = {
-    from: User
-    to: User
-    amount: number
-}
+export type Balance = Transaction[]

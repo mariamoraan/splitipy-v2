@@ -1,6 +1,92 @@
 .wrapper {
-    padding: 12px 24px;
+    padding: 24px;
     margin: 12px;
     border: 1px solid black;
     border-radius: 4px;
+}
+
+.title {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 24px;
+    font-size: var(--big-font);
+    font-weight: normal;
+}
+
+.balance {
+    padding: 8px 0;
+    display: flex;
+}
+
+.amount_wrapper {
+    position: relative;
+    padding: 0 45px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.amount {
+    padding: 0 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    border: 1px solid var(--accent-color-100);
+    border-radius: 4px;
+    color: var(--accent-color-100);
+}
+
+.arrow_left_side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    display: block;
+    width: 45px;
+    height: 1px;
+    background: black;
+}
+
+.arrow_left_side::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 0;
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: black;
+    border-radius: 100px;
+}
+
+.arrow_right_side {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-top: 2px solid #000;
+    border-left: 2px solid #000;
+    transform: rotate(135deg);
+}
+
+.arrow_right_side::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 45px;
+    background-color: black;
+    transform: rotate(-45deg) translate(15px, 4px);
+    left: 0;
+    top: 0;
+}
+
+.person {
+    padding: 0 8px;
+    font-weight: normal;
 }

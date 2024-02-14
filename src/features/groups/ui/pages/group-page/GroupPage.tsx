@@ -6,7 +6,6 @@ import { GroupContext } from '../../context/GroupContext'
 import { ExpensesList } from '../../../../expenses/ui/components/expenses-list/ExpensesList'
 import { CreateExpenseModal } from '../../../../expenses/ui/components/create-expense-modal/CreateExpenseModal'
 import { VOID_GROUP } from '../../../domain/constants'
-import { Summary } from '../../../../expenses/ui/components/summary/Summary'
 import { Expense } from '../../../../expenses/domain/entities/Expense'
 import styles from './GroupPage.module.css'
 import { ExpensesLocator } from '../../../../expenses/infrastructure/di/container'
@@ -22,25 +21,21 @@ export const GroupPage = () => {
     useEffect(() => {
         const setUpGroup = async () => {
             if (!groupId) return
-            setGroup(await GroupsLocator.getGetGroupById().execute(groupId))
-        }
-        setUpGroup()
-    }, [groupId])
-
-    useEffect(() => {
-        const setUpExpenses = async () => {
+            const requestedGroup =
+                await GroupsLocator.getGetGroupById().execute(groupId)
+            if (!requestedGroup) return
             const fullExpenses: Expense[] = []
-            group?.expenses.forEach(async (expense) => {
-                const e =
+            for (const expense of requestedGroup.expenses) {
+                const requestedExpense =
                     await ExpensesLocator.getGetExpenseById().execute(expense)
-                if (e) {
-                    fullExpenses.push(e)
-                }
-            })
+                if (requestedExpense !== null)
+                    fullExpenses.push(requestedExpense)
+            }
+            setGroup(requestedGroup)
             setExpenses(fullExpenses)
         }
-        setUpExpenses()
-    }, [group?.expenses])
+        setUpGroup()
+    }, [groupId, group?.expenses.length])
 
     if (!group) return <h1>Group not found</h1>
 
@@ -59,8 +54,7 @@ export const GroupPage = () => {
         >
             <div className={styles.wrapper}>
                 <GroupHeader />
-                {expenses.length > 0 ? <Summary expenses={expenses} /> : null}
-                <ExpensesList groupExpenses={expenses} />
+                <ExpensesList expenses={expenses} />
                 <CreateExpenseModal
                     group={group}
                     setGroup={setGroup}

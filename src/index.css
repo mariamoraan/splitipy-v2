@@ -1,7 +1,7 @@
 :root {
     --green: rgb(26, 186, 26);
     --green-with-opacity: rgba(0, 255, 0, 0.6);
-    --red: red;
+    --red: rgb(255, 0, 0);
 
     --accent-color-100: var(--green);
     --accent-color-150: var(--green-with-opacity);

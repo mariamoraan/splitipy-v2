@@ -12,6 +12,7 @@ describe('CalculateDebts', () => {
             concept: 'concept 1',
             payers: [payer1, payer2],
             debtors: [],
+            date: new Date('03-12-2024'),
         }
         const expected: Debtor[] = [
             { ...payer1, amount: -25 },
@@ -25,6 +26,7 @@ describe('CalculateDebts', () => {
             concept: 'concept 1',
             payers: [payer1, payer2],
             debtors: [debtor3],
+            date: new Date('03-12-2024'),
         }
         const expected: Debtor[] = [
             { ...payer1, amount: -50 },

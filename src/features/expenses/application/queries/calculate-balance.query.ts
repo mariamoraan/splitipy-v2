@@ -2,66 +2,72 @@ import { Query } from '../../../../common/infrastructure/Query'
 import { AuthLocator } from '../../../auth/infrastructure/di/container'
 import { Balance } from '../../domain/entities/Balance'
 import { Expense } from '../../domain/entities/Expense'
+import { Transaction } from '../../domain/entities/Transaction'
 import { CalculateDebtsSummaryQuery } from './calculate-debts-summary.query'
 
-const modifyElem = <T>(elems: T[], elemIndex: number, newElem: T) => {
-    return elems.map((elem, index) => (elemIndex === index ? newElem : elem))
-}
-
-export class CalculateBalanceQuery implements Query<Balance[], Expense[]> {
+export class CalculateBalanceQuery implements Query<Balance, Expense[]> {
     private calculateSummary = new CalculateDebtsSummaryQuery()
-    async execute(expenses: Expense[]): Promise<Balance[]> {
+
+    private calculatePartialDebt = (
+        payerAmount: number,
+        debtorAmount: number
+    ) => {
+        if (payerAmount >= debtorAmount) return debtorAmount
+        else return payerAmount
+    }
+
+    async execute(expenses: Expense[]): Promise<Balance> {
         const getUserById = AuthLocator.getGetUserById()
         const summary = this.calculateSummary.execute(expenses)
 
         const payers = Object.values(summary)
             .filter(({ amount }) => amount < 0)
-            .map(({ id, amount }) => ({ id, amount }))
+            .map(({ id, amount }) => ({ id, amount: Math.abs(amount) }))
         const debtors = Object.values(summary)
             .filter(({ amount }) => amount > 0)
             .map(({ id, amount }) => ({ id, amount }))
-        const balance: Balance[] = []
+        const balanceMap: { [key: string]: number } = {}
+        const balance: Balance = []
 
         for (const payer of payers) {
-            if (payer.amount <= 0.01) {
+            if (!balanceMap[payer.id]) balanceMap[payer.id] = payer.amount
+            let payerPartialAmount = balanceMap[payer.id]
+            if (payerPartialAmount > 0.01) {
                 for (const debtor of debtors) {
-                    if (debtor.amount >= 0.01) {
-                        console.log(debtor.amount)
-                        const partialDebt =
-                            Math.abs(payer.amount) >= debtor.amount
-                                ? Number(debtor.amount.toFixed(2))
-                                : Number(
-                                      (
-                                          (Math.abs(payer.amount) /
-                                              debtor.amount) *
-                                          debtor.amount
-                                      ).toFixed(2)
-                                  )
+                    const payerUser = await getUserById.execute(payer.id)
+                    const debtorUser = await getUserById.execute(debtor.id)
+                    if (!payerUser || !debtorUser) return []
 
-                        if (partialDebt > 0) {
-                            modifyElem(payers, payers.indexOf(payer), {
-                                ...payer,
-                                amount: Math.abs(payer.amount) - partialDebt,
-                            })
-                            modifyElem(debtors, debtors.indexOf(debtor), {
-                                ...debtor,
+                    payerPartialAmount = balanceMap[payer.id]
+                    if (balanceMap[debtor.id] === undefined)
+                        balanceMap[debtor.id] = debtor.amount
+                    const debtorPartialAmount = balanceMap[debtor.id]
+                    if (
+                        debtorPartialAmount > 0.01 &&
+                        payerPartialAmount > 0.01
+                    ) {
+                        const partialDebt = Number(
+                            this.calculatePartialDebt(
+                                payerPartialAmount,
+                                debtorPartialAmount
+                            ).toFixed(2)
+                        )
+                        balanceMap[payer.id] = payerPartialAmount - partialDebt
+                        balanceMap[debtor.id] =
+                            debtorPartialAmount - partialDebt
+
+                        if (payerUser && debtorUser) {
+                            const transaction: Transaction = {
+                                from: debtorUser,
+                                to: payerUser,
                                 amount: partialDebt,
-                            })
-
-                            const from = await getUserById.execute(debtor.id)
-                            const to = await getUserById.execute(payer.id)
-
-                            if (!from || !to) return []
-                            console.log(
-                                `from ${from.name} (${from.id}) to ${to.name} ${partialDebt}`
-                            )
-                            balance.push({ from, to, amount: partialDebt })
+                            }
+                            balance.push(transaction)
                         }
                     }
                 }
             }
         }
-
         return balance
     }
 }

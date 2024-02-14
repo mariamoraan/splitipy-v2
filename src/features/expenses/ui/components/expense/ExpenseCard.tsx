@@ -1,3 +1,4 @@
+import { DateService } from '../../../../../common/domain/datetime'
 import { CalculateDebtsQuery } from '../../../application/queries/calculate-debts.query'
 import { Expense } from '../../../domain/entities/Expense'
 import styles from './ExpenseCard.module.css'
@@ -11,7 +12,12 @@ export const ExpenseCard = (props: Props) => {
     const calculatedDebts = new CalculateDebtsQuery().execute(expense)
     return (
         <div className={styles.wrapper}>
-            <p className={styles.concept}>{expense.concept}</p>
+            <div className={styles.header}>
+                <h3 className={styles.concept}>{expense.concept}</h3>
+                <p className={styles.date}>
+                    {DateService.getDateAsDDMMYYYY(expense.date)}
+                </p>
+            </div>
             <p>Pagaron...</p>
             <ul className={styles.payers_list}>
                 {expense.payers.map((payer) => (

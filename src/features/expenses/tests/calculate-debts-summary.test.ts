@@ -17,12 +17,14 @@ describe('CalculateDebtsSummary', () => {
                 concept: 'concepto 1',
                 payers: [payer1],
                 debtors: [debtor1],
+                date: new Date('03-12-2024'),
             },
             {
                 id: '2',
                 concept: 'concepto 2',
                 payers: [payer1, payer2],
                 debtors: [],
+                date: new Date('03-12-2024'),
             },
         ]
         const expectedCalculatedDebtsSummary: { [key: string]: Debtor } = {

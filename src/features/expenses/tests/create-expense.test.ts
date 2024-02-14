@@ -13,6 +13,7 @@ const setUp = () => {
         concept: 'Concept',
         payers: [payer1],
         debtors: [debtor1],
+        date: new Date('03-13-2024'),
     }
     return { expensesRepository, createExpense, expense }
 }
@@ -24,6 +25,7 @@ describe('CreateExpense - ExpensesLocalDBRepository', () => {
         expensesRepository.createExpense.mockResolvedValue({
             ...expense,
             id: 'concept-id',
+            date: new Date('03-12-2024'),
         })
         const newExpense: Expense = await createExpense.execute(expense)
         expect(typeof newExpense.id).toBe('string')
@@ -36,10 +38,12 @@ describe('CreateExpense - ExpensesLocalDBRepository', () => {
         expensesRepository.createExpense.mockResolvedValue({
             ...expense,
             id: 'concept-id',
+            date: new Date('03-12-2024'),
         })
         expensesRepository.getExpenseById.mockResolvedValue({
             ...expense,
             id: 'concept-id',
+            date: new Date('03-12-2024'),
         })
 
         const getExpenseById = new GetExpenseByIdQuery(expensesRepository)

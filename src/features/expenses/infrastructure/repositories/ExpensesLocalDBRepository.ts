@@ -26,6 +26,9 @@ export class ExpensesLocalDBRepository implements ExpensesRepository {
                 (await this.localDB.getItem(this.expensesKey)) || '[]'
             ),
         ]
-        return expenses
+        return expenses.map((expense) => ({
+            ...expense,
+            date: new Date(expense.date),
+        }))
     }
 }

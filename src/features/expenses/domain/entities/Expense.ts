@@ -7,4 +7,5 @@ export interface Expense {
     concept: string
     payers: Payer[]
     debtors: Debtor[]
+    date: Date
 }

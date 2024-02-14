@@ -8,7 +8,9 @@ export class CreateExpenseCommand
     constructor(private expensesRepository: ExpensesRepository) {}
 
     async execute(expense: Omit<Expense, 'id'>): Promise<Expense> {
-        const newExpense = await this.expensesRepository.createExpense(expense)
+        const newExpense = await this.expensesRepository.createExpense({
+            ...expense,
+        })
         return newExpense
     }
 }
