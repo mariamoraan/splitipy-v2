@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import { User } from '../../../../auth/domain/entities/User'
-import { Button } from '../../../../../common/ui/components/button/Button'
+import { User } from '@auth/domain/entities/User'
 import styles from './ExpenseForm.module.css'
 import { Expense } from '../../../domain/entities/Expense'
 import { Debtor } from '../../../domain/entities/Debtor'
 import { Payer } from '../../../domain/entities/Payer'
 import { ExpensesLocator } from '../../../infrastructure/di/container'
+import { Button } from '@common/ui/components/button/Button'
 
 interface Props {
     members: User[]

@@ -1,5 +1,5 @@
-import { Query } from '../../../../common/infrastructure/Query'
-import { AuthLocator } from '../../../auth/infrastructure/di/container'
+import { Query } from '@common/infrastructure/Query'
+import { AuthLocator } from '@auth/infrastructure/di/container'
 import { Balance } from '../../domain/entities/Balance'
 import { Expense } from '../../domain/entities/Expense'
 import { Transaction } from '../../domain/entities/Transaction'

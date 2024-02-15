@@ -1,7 +1,7 @@
+import { useContext } from 'react'
 import { Navigate } from 'react-router-dom'
 import { UserForm } from '../../components/user-form/UserForm'
 import { User } from '../../../domain/entities/User'
-import { useContext } from 'react'
 import styles from './SignUpPage.module.css'
 import { AuthContext } from '../../context/AuthContext'
 import { AuthLocator } from '../../../infrastructure/di/container'

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
-import { ExpenseForm } from '../expense-form/ExpenseForm'
-import { Group } from '../../../../groups/domain/entities/Group'
-import { User } from '../../../../auth/domain/entities/User'
+import { User } from '@auth/domain/entities/User'
+import { AuthLocator } from '@auth/infrastructure/di/container'
+import { Expense } from '@expenses/domain/entities/Expense'
+import { ExpenseForm } from '@expenses/ui/components/expense-form/ExpenseForm'
+import styles from '@expenses/ui/components/create-expense-modal/CreateExpenseModal.module.css'
+import { Group } from '@groups/domain/entities/Group'
+import { GroupsLocator } from '@groups/infrastructure/di/container'
 import { XIcon } from '@primer/octicons-react'
-import styles from './CreateExpenseModal.module.css'
-import { Expense } from '../../../domain/entities/Expense'
-import { AuthLocator } from '../../../../auth/infrastructure/di/container'
-import { GroupsLocator } from '../../../../groups/infrastructure/di/container'
 
 interface Props {
     group: Group

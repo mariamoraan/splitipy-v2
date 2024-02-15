@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import { Expense } from '../../../domain/entities/Expense'
-import { ExpenseCard } from '../expense/ExpenseCard'
+import { Balance } from '@expenses/domain/entities/Balance'
+import { Expense } from '@expenses/domain/entities/Expense'
+import { ExpenseCard } from '@expenses/ui/components/expense/ExpenseCard'
 import { NoExpenses } from '../no-expenses/NoExpenses'
-import styles from './ExpensesList.module.css'
-import { CalculateBalanceQuery } from '../../../application/queries/calculate-balance.query'
-import { Balance } from '../../../domain/entities/Balance'
-import { BalanceCard } from '../balance-card/BalanceCard'
+import { BalanceCard } from '@expenses/ui/components/balance-card/BalanceCard'
+import styles from '@expenses/ui/components/expenses-list/ExpensesList.module.css'
+import { CalculateBalanceQuery } from '@expenses/application/queries/calculate-balance.query'
 
 interface Props {
     expenses: Expense[]

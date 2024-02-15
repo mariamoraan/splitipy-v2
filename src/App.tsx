@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { RouterProvider } from 'react-router-dom'
-import { User } from './features/auth/domain/entities/User'
-import { AuthContext } from './features/auth/ui/context/AuthContext'
-import { AuthLocator } from './features/auth/infrastructure/di/container'
+import { User } from '@auth/domain/entities/User'
+import { AuthContext } from '@auth/ui/context/AuthContext'
+import { AuthLocator } from '@auth/infrastructure/di/container'
 import { router } from './routes/router'
 
 const App = () => {

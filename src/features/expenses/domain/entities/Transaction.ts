@@ -1,4 +1,4 @@
-import { User } from '../../../auth/domain/entities/User'
+import { User } from '@auth/domain/entities/User'
 
 export interface Transaction {
     from: User

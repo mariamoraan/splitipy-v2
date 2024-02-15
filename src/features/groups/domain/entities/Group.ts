@@ -1,5 +1,5 @@
-import { UserId } from '../../../auth/domain/entities/UserId'
-import { ExpenseId } from '../../../expenses/domain/entities/ExpenseId'
+import { UserId } from '@auth/domain/entities/UserId'
+import { ExpenseId } from '@expenses/domain/entities/ExpenseId'
 
 type GroupId = string
 

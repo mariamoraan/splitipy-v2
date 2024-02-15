@@ -1,2 +1,6 @@
 .wrapper {
+    padding: 24px;
+    height: calc(100dvh - 48px);
+    display: flex;
+    flex-direction: column;
 }
